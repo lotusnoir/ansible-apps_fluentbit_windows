@@ -1,0 +1,36 @@
+[SERVICE]
+    flush 5
+    log_level warn
+    log_file C:\fluent-bit\logs\fluent-bit.log
+    parsers_file parsers.conf
+    plugins_file plugins.conf
+    storage.path C:\fluent-bit\logs
+    storage.sync normal
+    storage.checksum off
+    storage.backlog.mem_limit 50M
+    http_server on
+    http_listen 0.0.0.0
+    http_port 9224
+
+[INPUT]
+    name winevtlog
+    channels Security,System,Application,Microsoft-Windows-Windows Defender/Operational,Windows PowerShell,Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    tag system-windows
+    db winevtlog.sqlite
+    interval_sec 1
+
+@INCLUDE C:\fluent-bit\conf\conf.d\*.conf
+
+[FILTER]
+    Name record_modifier
+    Match *
+    Record hostname ${HOSTNAME}
+
+[OUTPUT]
+    name  forward
+    match *
+    storage.total_limit_size  200M
+    Retry_Limit 10
+    host 10.1.81.224
+    port {{fluentbit_output_port}}
+
