@@ -24,7 +24,7 @@
 [FILTER]
     Name record_modifier
     Match *
-    Record hostname ${HOSTNAME}
+    Record hostname {{ansible_inventory_hostname}}
 
 [OUTPUT]
     name  forward
