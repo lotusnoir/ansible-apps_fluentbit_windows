@@ -24,13 +24,12 @@
 [FILTER]
     Name record_modifier
     Match *
-    Record hostname ${HOSTNAME}
+    Record hostname {{ inventory_hostname }}
 
 [OUTPUT]
     name  forward
     match *
     storage.total_limit_size  200M
     Retry_Limit 10
-    host 10.1.81.224
+    host {{fluentbit_output_host}}
     port {{fluentbit_output_port}}
-
