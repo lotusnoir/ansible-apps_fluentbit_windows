@@ -7,7 +7,7 @@
 - name: "Download"
   ansible.windows.win_get_url:
     url: https://releases.fluentbit.io/2.1/fluent-bit-2.1.10-win64.exe
-    dest: C:\fluent-bit\install-fluent-bit.exe 
+    dest: C:\fluent-bit\install-fluent-bit.exe
 
 - name: "Install"
   ansible.windows.win_powershell:
@@ -35,4 +35,3 @@
 - name: "Restart service"
   ansible.windows.win_powershell:
     script: Restart-Service fluent-bit
-
