@@ -6,7 +6,7 @@
 
 - name: "Download"
   ansible.windows.win_get_url:
-    url: https://releases.fluentbit.io/2.1/fluent-bit-2.1.10-win64.exe
+    url: https://packages.fluentbit.io/windows/fluent-bit-3.2.1-win64.exe
     dest: C:\fluent-bit\install-fluent-bit.exe 
 
 - name: "Install"
