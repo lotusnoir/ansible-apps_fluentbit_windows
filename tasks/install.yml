@@ -30,7 +30,16 @@
 
 - name: "Create service"
   ansible.windows.win_powershell:
-    script: New-Service fluent-bit -BinaryPathName "c:\fluent-bit\bin\fluent-bit.exe -c c:\fluent-bit\conf\fluent-bit.conf" -StartupType Automatic -ErrorAction Continue ; Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\fluent-bit" -Name "ImagePath" -Value "c:\fluent-bit\bin\fluent-bit.exe -c c:\fluent-bit\conf\fluent-bit.conf"
+    script: |
+      New-Service fluent-bit `
+        -BinaryPathName "c:\fluent-bit\bin\fluent-bit.exe -c c:\fluent-bit\conf\fluent-bit.conf" `
+        -StartupType Automatic `
+        -ErrorAction Continue
+
+      Set-ItemProperty `
+        -Path "HKLM:\SYSTEM\CurrentControlSet\Services\fluent-bit" `
+        -Name "ImagePath" `
+        -Value "c:\fluent-bit\bin\fluent-bit.exe -c c:\fluent-bit\conf\fluent-bit.conf"
 
 - name: "Restart service"
   ansible.windows.win_powershell:
