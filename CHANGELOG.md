@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0](https://gitlab.pleal.ovh/ansible-roles_base/ansible-apps_fluentbit_windows/compare/0.1.0...0.2.0) - 2025-10-10
+
+### Commits
+
+- doc: update changelog [`2f65550`](https://gitlab.pleal.ovh/ansible-roles_base/ansible-apps_fluentbit_windows/commit/2f655504faca6ed07cdf340af371c9b1c705fe93)
+
 ## 0.1.0 - 2025-10-10
 
 ### Commits
