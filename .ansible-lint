@@ -3,4 +3,4 @@ skip_list:
   - '106'
   - '401'
   - 'schema'
-  - line-length
+  - 'yaml[line-length]'
